@@ -1,0 +1,11 @@
+<h1>Welcome to iEat, <%= current_user ? current_user.email : 'Stranger'%></h1>
+
+<% if user_signed_in? %>
+  <% if current_user.restaurant? %>
+    <p><%= current_user.restaurant.name %></p>
+    Products
+    <%= render 'products'%>
+  <% else %>
+    <%= render 'restaurants' %>
+  <% end %>
+<% end %>
